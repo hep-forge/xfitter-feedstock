@@ -1,0 +1,39 @@
+From 2e99b6dca82f6f7b320898c690428366512db912 Mon Sep 17 00:00:00 2001
+From: Marco Meyer-Conde <marco@tcu.ac.jp>
+Date: Tue, 19 Nov 2024 21:06:02 +0900
+Subject: [PATCH] conda
+
+---
+ cmake/FindDYTurbo.cmake | 2 +-
+ make.sh                 | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/FindDYTurbo.cmake b/cmake/FindDYTurbo.cmake
+index 349cb9e4..e28a44b8 100644
+--- a/cmake/FindDYTurbo.cmake
++++ b/cmake/FindDYTurbo.cmake
+@@ -9,7 +9,7 @@ if(EXISTS "${dyturbo-config}")
+   set_target_properties(DYTurbo PROPERTIES IMPORTED_LOCATION "${DYTurbo_LIBRARY_DIRS}/libdyturbo.so")
+   set_target_properties(DYTurbo PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${DYTurbo_INCLUDE_DIRS}/")
+   add_library(cuba SHARED IMPORTED)
+-  set_target_properties(cuba PROPERTIES IMPORTED_LOCATION "${DYTurbo_LIBRARY_DIRS}/../Cuba-4.2.2/libcuba.a")
++  set_target_properties(cuba PROPERTIES IMPORTED_LOCATION "${DYTurbo_LIBRARY_DIRS}/libcuba.a")
+ else()
+   set(DYTurbo_FOUND 0)
+ endif()
+diff --git a/make.sh b/make.sh
+index 073518b5..ba16a8f9 100755
+--- a/make.sh
++++ b/make.sh
+@@ -24,7 +24,7 @@ CMAKE_FLAGS=$CMAKE_FLAGS" -DCMAKE_BUILD_TYPE=Release"
+ 
+ SOURCE_DIR=`pwd` #absolute path to directory of this script
+ BUILD_DIR=$SOURCE_DIR/build
+-INSTALL_DIR=$SOURCE_DIR
++INSTALL_DIR=$PREFIX
+ 
+ cmd=$1
+ 
+-- 
+2.17.1
+

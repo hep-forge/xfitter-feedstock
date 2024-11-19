@@ -1,0 +1,63 @@
+{% set version = environ.get('COMMIT_VERSION', "HEAD") %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "xfitter")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  git_url: "https://gitlab.cern.ch/fitters/xfitter"
+  git_rev: {{ version }}
+  patches:
+    - patches/conda.patch
+
+requirements:
+  build:
+    - {{ compiler('gfortran') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+
+    - cmake
+    - make
+
+  host:
+    - yaml-cpp
+    - lapack
+    - cernlib
+    - gsl
+    - qcdnum
+    - lhapdf
+    - applgrid
+    - apfelgrid
+    - apfel
+    - apfelxx
+    - ceres-solver
+    - root
+    - hathor
+    - dyturbo
+    - yaml
+    - zlib
+    - pineappl
+    - ploughshare
+    - openssl
+
+  run:
+    - qcdnum
+    - gsl
+    - lhapdf
+    - root
+    - yaml-cpp
+    - yaml
+    - openssl
+
+about:
+  home: "https://gitlab.cern.ch/fitters/xfitter"
+  license: "GPL-3.0"
+  summary: "xFitter - A PDF fit program from HERA."
+  description: |
+    xFitter is an open source QCD fit framework desinged to extract PDFs and assess the impact of new data.
+    The xFitter project is is a common initiative by the H1 and ZEUS collaborations and extended to the LHC collaborations to provide precision QCD analyses.
+
+extra:
+  recipe-maintainers:
+    - meiyasan
