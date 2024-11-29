@@ -49,6 +49,13 @@ requirements:
     - yaml-cpp
     - yaml
     - openssl
+    - apfelgrid
+    - dyturbo
+    - qcdnum
+    - apfelgrid
+    - apfel
+    - apfelxx
+    - pineappl
 
 about:
   home: "https://gitlab.cern.ch/fitters/xfitter"
