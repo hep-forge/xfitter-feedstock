@@ -1,4 +1,9 @@
+{% set versions = {
+    "latest": "HEAD"
+} %}
+
 {% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
 {% set version = version|string %}
 
 package:
@@ -7,7 +12,7 @@ package:
 
 source:
   git_url: "https://gitlab.cern.ch/fitters/xfitter"
-  git_rev: {{ environ.get('COMMIT_TAG', "HEAD") }}
+  git_rev: {{ versions.get(version, "HEAD") }}
   patches:
     - patches/conda.patch
 
