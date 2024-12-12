@@ -1,5 +1,5 @@
 {% set versions = {
-    "latest": "HEAD"
+    "2.2.1": "74912371e952bffb586a92c17983dc2decb5f41f"
 } %}
 
 {% set version = environ.get('COMMIT_VERSION', None) %}
@@ -45,6 +45,7 @@ requirements:
     - pineappl
     - ploughshare
     - openssl
+    - numdiff
 
   run:
     - qcdnum
@@ -61,6 +62,7 @@ requirements:
     - apfel
     - apfelxx
     - pineappl
+    - numdiff
 
 about:
   home: "https://gitlab.cern.ch/fitters/xfitter"
