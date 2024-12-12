@@ -64,6 +64,11 @@ requirements:
     - pineappl
     - numdiff
 
+test:
+  commands:
+    - cd examples && xfitter defaultNLO
+    - cd examples && xfitter ZEUSjets2023
+
 about:
   home: "https://gitlab.cern.ch/fitters/xfitter"
   license: "GPL-3.0"
