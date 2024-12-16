@@ -28,7 +28,6 @@ requirements:
   host:
     - yaml-cpp
     - lapack
-    - cernlib
     - gsl
     - qcdnum
     - lhapdf
