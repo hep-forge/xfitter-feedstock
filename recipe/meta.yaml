@@ -36,7 +36,7 @@ requirements:
     - apfel
     - apfelxx
     - ceres-solver
-    - hep-forge::root
+    - root
     - hathor
     - dyturbo
     - yaml
@@ -50,7 +50,7 @@ requirements:
     - qcdnum
     - gsl
     - lhapdf
-    - hep-forge::root
+    - root
     - yaml-cpp
     - yaml
     - openssl
