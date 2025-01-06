@@ -24,6 +24,7 @@ requirements:
 
     - cmake
     - make
+    - rsync
 
   host:
     - yaml-cpp
