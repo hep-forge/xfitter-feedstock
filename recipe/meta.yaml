@@ -22,7 +22,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
 
-    - cmake
+    - cmake<4
     - make
     - rsync
 
