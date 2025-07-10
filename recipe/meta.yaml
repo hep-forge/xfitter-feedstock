@@ -27,10 +27,43 @@ requirements:
     - rsync
 
   host:
-    - xfitter-dev
+    - yaml-cpp
+    - lapack
+    - gsl
+    - qcdnum
+    - lhapdf
+    - applgrid
+    - apfelgrid
+    - apfel
+    - apfelxx
+    - ceres-solver
+    - root
+    - hathor
+    - dyturbo
+    - yaml
+    - zlib
+    - pineappl
+    - ploughshare
+    - openssl
+    - numdiff
 
   run:
-    - xfitter-dev
+    - qcdnum
+    - gsl
+    - lhapdf
+    - root
+    - yaml-cpp
+    - yaml
+    - openssl
+    - apfelgrid
+    - dyturbo
+    - qcdnum
+    - apfelgrid
+    - apfel
+    - apfelxx
+    - pineappl
+    - numdiff
+
 
 test:
   commands:
