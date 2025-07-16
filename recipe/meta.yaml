@@ -10,10 +10,6 @@ package:
   name: {{ environ.get('ANACONDA_PACKAGE', "xfitter")|string|lower }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
-build:
-  number: 0
-  string: "root{{ root.replace('.', '') }}"
-
 source:
   git_url: "https://gitlab.cern.ch/fitters/xfitter"
   git_rev: {{ versions.get(version, "HEAD") }}
