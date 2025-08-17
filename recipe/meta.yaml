@@ -22,26 +22,23 @@ source:
 
 requirements:
   build:
-    - {{ compiler('gfortran') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('c') }}
-
+    - root {{ root }}
     - cmake<4
     - make
     - rsync
 
   host:
+    - root {{ root }}
+    - apfelgrid * root{{ root.replace('.', '') }}
     - yaml-cpp
     - lapack
     - gsl
     - qcdnum
     - lhapdf
     - applgrid
-    - apfelgrid
     - apfel
     - apfelxx
     - ceres-solver
-    - root
     - hathor
     - dyturbo
     - yaml
@@ -52,14 +49,14 @@ requirements:
     - numdiff
 
   run:
+    - root {{ root }}
+    - apfelgrid * root{{ root.replace('.', '') }}
     - qcdnum
     - gsl
     - lhapdf
-    - root
     - yaml-cpp
     - yaml
     - openssl
-    - apfelgrid
     - dyturbo
     - qcdnum
     - apfelgrid
