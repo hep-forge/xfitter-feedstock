@@ -26,9 +26,3 @@ libgcc_version:        # [linux]
   - 14.*
 libstdcxx_version:     # [linux]
   - 14.*
-
-zip_keys:
-  - - c_compiler_version
-    - cxx_compiler_version
-    - libgcc_version
-    - libstdcxx_version
