@@ -9,10 +9,11 @@
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "xfitter")|string|lower }}
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+{% set root_tag = (root or '')|replace('.', '') %}
 
 build:
   number: 0
-  string: "root{{ root.replace('.', '') }}"
+  string: "root{{ root_tag }}"
 
 source:
   git_url: "https://gitlab.cern.ch/fitters/xfitter"
@@ -29,7 +30,7 @@ requirements:
 
   host:
     - root {{ root }}
-    - apfelgrid * root{{ root.replace('.', '') }}
+    - apfelgrid * root{{ root_tag }}
     - yaml-cpp
     - lapack
     - gsl
@@ -50,7 +51,7 @@ requirements:
 
   run:
     - root {{ root }}
-    - apfelgrid * root{{ root.replace('.', '') }}
+    - apfelgrid * root{{ root_tag }}
     - qcdnum
     - gsl
     - lhapdf
