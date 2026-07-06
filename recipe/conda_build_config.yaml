@@ -1,6 +1,17 @@
+# hep-forge's root packages are published for one python per version
+# family (6.34/6.38 -> 3.12); without this pin conda-build tries
+# conda-forge's global default python matrix, and any slot ROOT wasn't
+# built for (e.g. py314) is unsatisfiable under strict channel priority.
+python:
+  - "3.12"
+
+# 6.36 dropped: root itself is no longer published for 6.36 at all (channel
+# trim keeps only the newest 2 versions; only 6.34.10/6.38.04 remain), and
+# it was already a stale pin -- applgrid/apfelgrid/fastnlo (also in this
+# chain) only ever published root634 consistently across both arches, not
+# root636 on aarch64. 6.34 is the variant that actually solves everywhere.
 root:
   - 6.34
-  - 6.36
 
 packages:
   - numpy
