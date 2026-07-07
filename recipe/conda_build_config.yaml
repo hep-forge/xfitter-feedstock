@@ -5,13 +5,11 @@
 python:
   - "3.12"
 
-# 6.36 dropped: root itself is no longer published for 6.36 at all (channel
-# trim keeps only the newest 2 versions; only 6.34.10/6.38.04 remain), and
-# it was already a stale pin -- applgrid/apfelgrid/fastnlo (also in this
-# chain) only ever published root634 consistently across both arches, not
-# root636 on aarch64. 6.34 is the variant that actually solves everywhere.
+# 6.34 dropped in turn: root-feedstock's rolling window moved past it
+# (only 6.32/6.38 remain published), and applgrid/apfelgrid/fastnlo (also
+# in this chain) have all moved to 6.38 to match.
 root:
-  - 6.34
+  - 6.38
 
 packages:
   - numpy
