@@ -16,7 +16,7 @@ xFitter - A PDF fit program from HERA.
 | Architecture | Latest published |
 |--------------|------------------|
 | linux-amd64 (`linux-64`) | ✅ `2.2.1` |
-| linux-arm64 (`linux-aarch64`) | ❌ not published |
+| linux-arm64 (`linux-aarch64`) | ✅ `2.2.1` |
 
 _As of the last feedstock render; the badges above are live._
 
