@@ -39,7 +39,7 @@ requirements:
     - gsl
     - qcdnum
     - lhapdf
-    - applgrid
+    - applgrid * root{{ root_tag }}
     - apfel
     - apfelxx
     - ceres-solver
