@@ -24,10 +24,10 @@ c_compiler:            # [linux]
 cxx_compiler:          # [linux]
   - gxx
 c_compiler_version:    # [linux]
-  - 14
+  - 15
 cxx_compiler_version:  # [linux]
-  - 14
+  - 15
 libgcc_version:        # [linux]
-  - 14.*
+  - 15.*
 libstdcxx_version:     # [linux]
-  - 14.*
+  - 15.*
