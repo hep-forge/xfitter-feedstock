@@ -23,6 +23,9 @@ source:
 
 requirements:
   build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - root {{ root }}
     - cmake<4
     - make
