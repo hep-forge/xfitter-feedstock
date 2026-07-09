@@ -9,7 +9,7 @@ gsl:
 lhapdf:
 - '6.5'
 openssl:
-- '3.5'
+- '3.0'
 root:
 - '6.32'
 target_platform:
