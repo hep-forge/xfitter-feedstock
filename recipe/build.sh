@@ -13,6 +13,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
   sed -i.bak 's/ -pthread -lrt")/ -pthread")/' ../CMakeLists.txt
   rm -f ../CMakeLists.txt.bak
   if grep -q -- '-pthread -lrt' ../CMakeLists.txt; then echo "-lrt not removed" >&2; exit 1; fi
+  # The Fortran parts (libff.a and others) are linked by the C++ driver,
+  # which does not add gfortran's runtime on macOS (undefined
+  # __gfortran_* symbols): name it. libgfortran.dylib is in $PREFIX/lib.
+  export LDFLAGS="${LDFLAGS} -lgfortran"
 fi
 cmake ${CMAKE_ARGS} .. -DCMAKE_INSTALL_PREFIX=$PREFIX
 
