@@ -17,6 +17,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # which does not add gfortran's runtime on macOS (undefined
   # __gfortran_* symbols): name it. libgfortran.dylib is in $PREFIX/lib.
   export LDFLAGS="${LDFLAGS} -lgfortran"
+  # The find modules in cmake/ name each dependency's library with a literal
+  # ".so" (libdyturbo.so, libLHAPDF.so, ...); macOS libraries are .dylib.
+  sed -i.bak 's/\.so"/${CMAKE_SHARED_LIBRARY_SUFFIX}"/g' ../cmake/Find*.cmake
+  rm -f ../cmake/Find*.cmake.bak
+  if grep -l '\.so"' ../cmake/Find*.cmake; then echo "a find module still names .so" >&2; exit 1; fi
 fi
 cmake ${CMAKE_ARGS} .. -DCMAKE_INSTALL_PREFIX=$PREFIX
 
