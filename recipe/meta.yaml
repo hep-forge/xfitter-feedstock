@@ -33,13 +33,15 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - {{ stdlib('c') }}
-    - root {{ root }}
+    - root_base {{ root }}.* cxx{{ root_cxx_standard }}*
+    - python
     - cmake<4
     - make
     - rsync
 
   host:
-    - root {{ root }}
+    - root_base {{ root }}.* cxx{{ root_cxx_standard }}*
+    - python
     - apfelgrid * root{{ root_tag }}
     - yaml-cpp
     - lapack
@@ -60,7 +62,7 @@ requirements:
     - numdiff
 
   run:
-    - root {{ root }}
+    - {{ pin_compatible('root_base', exact=True) }}
     - apfelgrid * root{{ root_tag }}
     - qcdnum
     - gsl
